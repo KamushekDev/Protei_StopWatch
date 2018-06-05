@@ -16,6 +16,8 @@ namespace Protei_StopWatch {
 
         private readonly Stopwatch _stopwatch;
 
+        private CancellationTokenSource cancellationTokenSource;
+
         public ObservableCollection<Lap> Laps { get; private set; }
 
         public String EllapsedTime => _stopwatch.Elapsed.ToString(@"hh\:mm\:ss\:fff");
@@ -24,6 +26,7 @@ namespace Protei_StopWatch {
             _stopwatch = new Stopwatch();
             Laps = new ObservableCollection<Lap>();
             Laps.CollectionChanged+= OnCollectionChanged;
+            cancellationTokenSource=new CancellationTokenSource();
         }
 
         private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
@@ -37,12 +40,13 @@ namespace Protei_StopWatch {
                     OnPropertyChanged(nameof(EllapsedTime));
                     Thread.Sleep(13);
                 }
-            });
+            }, cancellationTokenSource.Token);
 
         }
 
         public void Stop() {
             _stopwatch.Stop();
+            cancellationTokenSource.Cancel();
         }
 
         public void Lap() {
