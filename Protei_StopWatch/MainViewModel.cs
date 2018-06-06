@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Protei_StopWatch.Annotations;
 
 namespace Protei_StopWatch {
@@ -18,7 +14,7 @@ namespace Protei_StopWatch {
 
     class MainViewModel : INotifyPropertyChanged {
 
-        private MyStopwatchViewModel _stopwatchViewModel;
+        private MyStopwatch _stopwatchViewModel;
 
         private TimerState _timerState;
 
@@ -28,7 +24,7 @@ namespace Protei_StopWatch {
         private RelayCommand _startStopCommand;
         private RelayCommand _lapResetCommand;
 
-        public MyStopwatchViewModel StopwatchViewModel {
+        public MyStopwatch StopwatchViewModel {
             get => _stopwatchViewModel;
             private set {
                 _stopwatchViewModel = value;
@@ -62,7 +58,7 @@ namespace Protei_StopWatch {
         }
 
         public MainViewModel() {
-            _stopwatchViewModel = new MyStopwatchViewModel();
+            _stopwatchViewModel = new MyStopwatch();
             _startStopBtnContent = "Start";
             _lapResetBtnContent = "Lap";
             _timerState = TimerState.Idle;

@@ -16,20 +16,20 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label Background="SeaShell" HorizontalContentAlignment="Center" 
-               Grid.ColumnSpan="2" Content="{Binding Path=StopwatchViewModel.EllapsedTime}"
-               VerticalContentAlignment="Center" HorizontalAlignment="Center" 
-               FontSize="41"/>
+        <Label HorizontalContentAlignment="Center" Grid.ColumnSpan="2"
+               Content="{Binding Path=StopwatchViewModel.EllapsedTime}"
+               VerticalContentAlignment="Center" HorizontalAlignment="Center"
+               FontSize="45"/>
 
         <ListBox FontSize="20" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                  ItemsSource="{Binding Path=StopwatchViewModel.Laps}" />
 
-        <Button Background="Green" Grid.Column="0" Grid.Row="2" x:Name="StartStop" 
+        <Button Background="LightGray" Grid.Column="0" Grid.Row="2" x:Name="StartStop" 
                 Command="{Binding StartStopCommand}" Content="{Binding StartStopBtnContent}"
                 FontSize="35" />
-        <Button Background="Yellow" Grid.Column="1" Grid.Row="2" x:Name="LapReset"
+        <Button Background="LightGray" Grid.Column="1" Grid.Row="2" x:Name="LapReset"
                 Command="{Binding LapResetCommand}" Content="{Binding LapResetBtnContent}"
-                FontSize="35"/>
+                FontSize="35" />
     </Grid>
 
 </Window>
